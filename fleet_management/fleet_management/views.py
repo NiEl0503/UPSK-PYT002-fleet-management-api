@@ -7,8 +7,9 @@ class CustomPagination(pagination.PageNumberPagination):
     """Especifica cómo se deben paginar los resultados de esta vista"""
     page_size = 10
     page_size_query_param = 'page_size'
-    max_page_size = 100
+    max_page_size = 300
 
+# pylint: disable=no-member
 class TaxiList(generics.ListAPIView):
     """Vista para listar todos los taxis."""
     serializer_class = TaxiSerializer
