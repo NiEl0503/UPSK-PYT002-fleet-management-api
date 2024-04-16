@@ -9,3 +9,15 @@ class Taxi(models.Model):
     class Meta:
         """taxis nombre de la tabla en la bdd"""
         db_table = 'taxis'
+
+class LocationHistory(models.Model):
+    """Modelo que representa el historial de localizaciones de un taxi."""
+    id = models.AutoField(primary_key=True)
+    taxi = models.ForeignKey(Taxi, on_delete=models.CASCADE)
+    date = models.DateTimeField()
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+
+    class Meta:
+        """trajectories nombre de la tabla en la bdd"""
+        db_table = 'trajectories'

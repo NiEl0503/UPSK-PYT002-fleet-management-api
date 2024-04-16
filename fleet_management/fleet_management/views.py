@@ -1,7 +1,7 @@
 """Módulo que contiene la definición de las vistas de la aplicación."""
 from rest_framework import generics, pagination
-from .models import Taxi
-from .serializers import TaxiSerializer
+from .models import LocationHistory, Taxi
+from .serializers import LocationHistorySerializer, TaxiSerializer
 
 class CustomPagination(pagination.PageNumberPagination):
     """Especifica cómo se deben paginar los resultados de esta vista"""
@@ -17,3 +17,16 @@ class TaxiList(generics.ListAPIView):
 
     def get_queryset(self):
         return Taxi.objects.all()
+
+class LocationHistoryList(generics.ListAPIView):
+    """Vista para obtener el historial de localizaciones de un taxi en una fecha dada."""
+    serializer_class = LocationHistorySerializer
+    pagination_class = CustomPagination
+
+    def get_queryset(self):
+        taxi_id = self.request.query_params.get('taxi_id')
+        date = self.request.query_params.get('date')
+        if taxi_id is not None and date is not None:
+            return LocationHistory.objects.filter(taxi_id=taxi_id, date__date=date)
+        return LocationHistory.objects.none()
+    
