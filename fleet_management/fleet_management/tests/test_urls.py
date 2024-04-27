@@ -10,3 +10,4 @@ class TestUrls(SimpleTestCase):
         """Prueba que la URL de listar taxis se resuelve correctamente."""
         url = reverse('taxi-list')
         self.assertEqual(resolve(url).func.view_class, TaxiList)
+        
