@@ -5,9 +5,7 @@
 * [1. Resumo do projeto](#2-resumo-do-projeto)
 * [2. Critérios de aceitação do projeto](#5-critérios-de-aceitação-do-projeto)
 * [3. Tecnologias Utilizadas](#6-tecnologias-utilizadas)
-* [7. Dicas, sugestões e leituras complementares](#7-dicas-sugestões-e-leituras-complementares)
-* [8. Funcionalidades opcionais](#8-funcionalidades-opcionais)
-
+  
 ***
 
 ## 1. Resumo do projeto
