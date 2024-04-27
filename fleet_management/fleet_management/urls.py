@@ -3,7 +3,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from django.contrib import admin
 from django.urls import path
-from .views import LocationHistoryList, TaxiList
+from .views import LocationHistoryList, TaxiList, LastLocationList
 
 SchemaView = get_schema_view(
    openapi.Info(
@@ -22,4 +22,5 @@ urlpatterns = [
    path('taxis/', TaxiList.as_view(), name='taxi-list'),
    path('location_history/', LocationHistoryList.as_view(), name='location-history'),
    path('docs/', SchemaView.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+   path('last_location/', LastLocationList.as_view(), name='last-location'),
 ]

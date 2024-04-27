@@ -16,3 +16,12 @@ class LocationHistorySerializer(serializers.ModelSerializer):
         """Proporciona metainformación adicional."""
         model = LocationHistory
         fields = ['id', 'taxi_id', 'date', 'latitude', 'longitude']
+
+class LastLocationSerializer(serializers.ModelSerializer):
+    """Serializador para la última localización de un taxi."""
+    plate = serializers.CharField(source='taxi.plate', read_only=True)
+    timestamp = serializers.DateTimeField(source='date', read_only=True)
+    class Meta:
+        """Proporciona metainformación adicional."""
+        model = LocationHistory
+        fields = ['taxi', 'plate', 'latitude', 'longitude', 'timestamp']
